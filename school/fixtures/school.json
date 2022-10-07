@@ -1,0 +1,11 @@
+[
+    {
+        "model": "school.schoolperson",
+        "pk": 1,
+        "fields": {
+            "name": "Johan",
+            "age": "19",
+            "email": "goog@gj.com"
+        }
+    }
+]

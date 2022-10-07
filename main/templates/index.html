@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="header">
+
+    <div class="header_logo">
+        <img src="{% static 'img/icon.png' %}" alt="">
+    </div>
+    <div class="header_social">
+        <img src="{% static 'img/vk-logo.png' %}" alt="VK">
+        <img src="{% static 'img/telegram-logo.png' %}" alt="Telegram">
+        <img src="{% static 'img/viber-icon-logo.png' %}" alt="Viber">
+    </div>
+    <div class="header_contacts">
+        <p>
+            <strong>A1 : </strong> +375 (29) 111-22-33
+        </p>
+        <p>
+            <strong>MTC : </strong> +375 (33) 111-22-33
+        </p>
+        <p>
+            <strong>Life : </strong> +375 (25) 111-22-33
+        </p>
+    </div>
+</div>
+<nav style="margin: 5px">
+    <a href="{% url 'main:index' %}" style="margin-top: 5px; text-decoration: none; color: yellow; paddings: 5px; background: blue">All</a>
+    {% for c in categories %}
+        <a href="{% url 'main:get_category' c.id %}" style="margin-top: 5px; text-decoration: none; color: yellow; paddings: 5px; background: blue"> {{c.title }}</a>
+    {% endfor %}
+</nav>
+<main class="main">
+    {% for p in products %}
+    <div class="item_card">
+        <img src="{{ p.image.url }}" alt="" style="width: 200px; height: 200px">
+    <p>Цена: {{p.price }}</p>
+    <p>Описание: {{p.description }}</p>
+
+    </div>
+    {% endfor %}
+</main>
+
+</body>
+</html>

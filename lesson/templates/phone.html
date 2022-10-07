@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+{% for i in phone %}
+    <div style="border: 1px solid green">
+        <p> {{ i.Brand }}</p>
+        <p> {{ i.Model }}</p>
+        <p> {{ i.System }}</p>
+        <p> {{ i.Display }}</p>
+    </div>
+{% endfor %}
+</body>
+</html>

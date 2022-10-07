@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="color" id="input">
+<button id="button">change color</button>
+<form action="" method="post">
+    {% csrf_token %}
+    <table> {{ form.as_table }}</table>
+    <br><br>
+    <button>Login</button>
+</form>
+<script>
+    document.body.style.background = getCookie('color')
+
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    console.log(getCookie('color'))
+    document.cookie = 'user = Dima'
+    let color = ''
+    let input = document.getElementById('input')
+    let button = document.getElementById('button')
+    button.addEventListener('click', fn)
+
+    function fn() {
+        document.cookie = `color = ${input.value}`
+        document.body.style.background = input.value
+    }
+</script>
+</body>
+</html>
